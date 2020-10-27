@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+body {
+  font-family: 'Roboto', Arial, sans-serif;
+  color: #d14f4f;
+  line-height: 1.7;
+  font-size: 19px;
+}
+
+.navbar {
+  background-color: rgba(22, 22, 22, 0.8);
+  display: flex;
+  justify-content: center;
+}
+
+.link {
+  color: #efefef;
+  display: inline-block;
+  padding: 3px 20px;
+  font-size: 16px;
+  text-decoration: none;
+  transition: 0.3s ease all;
+}
+
+.link:hover {
+  color: #f59494;
+  transform: scale(1.1);
+}
+
+.nasa-photo {
+  display: flex;
+  padding: 40px;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+
+.nasa-photo img {
+  width: 20%;
+  margin-right: 50px;
+  object-fit: contain;
+  max-height: 80vh;
+}
+
+.nasa-photo h1 {
+	font-size: 24px;
+	line-height: 2rem;
+	font-weight: 500;
+	padding-top: 50px;
+	text-align: center;
+}
+
+.home {
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-link {
+  font-size: 40px;
+  background: red;
+  display: inline-block;
+  padding: 100px 150px;
+  color: #fff;
+  border-radius: 80%;
+  text-decoration: none;
+  transition: 0.5s ease all;
+  text-transform: uppercase;
+}
+
+.home-link:hover {
+  border-radius: 5px;
+  background: #e77171;
+}
