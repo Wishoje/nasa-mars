@@ -3,15 +3,31 @@ import Navigation from "./Navigation";
 import axios from 'axios';
 
 export default function NasaPhoto() {
-  const [photoData, setPhotoData] = useState([]);
+	const [photoData, setPhotoData] = useState([]);
+	const cameras =  [
+		'FHAZ',
+		'RHAZ',
+		'MAST',
+		'CHEMCAM',
+		'MAHLI',
+		'MARDI',
+		'NAVCAM',
+		'PANCAM',
+		'MINITES'
+	];
+
+	async function fetchPhoto(camera) {
+		const res = await axios.get('getAllCameras', { 
+			params: { 
+				cameraName: camera
+				}
+			}
+		);
+		setPhotoData(res.data.content.photos);
+	}
 
   useEffect(() => {
-    fetchPhoto();
-
-    async function fetchPhoto() {
-			const res = await axios.get('getAllCameras');
-			setPhotoData(res.data.content.photos);
-    }
+    fetchPhoto('FHAZ');
   }, []);
 
   if (!photoData) return <div />;
@@ -20,9 +36,15 @@ export default function NasaPhoto() {
     <>
     <Navigation />
     <div className="nasa-photo">
-			<h1>Camera: MAST</h1>
-			<div>
-				{photoData.map(photo => <img src={photo.img_src}></img>)}
+			<ul>
+				{cameras.map((camera, i) => 
+					<li key={i} onClick={() => fetchPhoto(camera)}>{camera}</li>
+				)}
+			</ul>
+			<div className="nasa-photo-list">
+				{photoData.map(photo => 
+					<img key={photo.id} src={photo.img_src}></img>
+				)}
 			</div>
     </div>
     </>

@@ -49,6 +49,14 @@ body {
 	text-align: center;
 }
 
+.nasa-photo ul li {
+  cursor: pointer;
+}
+
+.nasa-photo-list {
+  flex: 0 0 100%;
+}
+
 .home {
   display: flex;
   height: 100vh;
